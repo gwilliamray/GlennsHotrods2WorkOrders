@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GlennsHotrods2.Models.WorkOrder>
+
+@{
+    ViewData["Title"] = "ShowWorkOrders";
+}
+
+<h1>ShowWorkOrders</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer.CustomerName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedTo)
+            </td>
+            <td>
+                <pre>@Html.DisplayFor(modelItem => item.WorkDescription)</pre>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer.CustomerName)
+            </td>
+            <td>
+                <a asp-action="EditWorkOrder" asp-route-id="@item.WorkOrderId">Edit</a> |
+                <a asp-action="DetailsWorkOrder" asp-route-id="@item.WorkOrderId">Details</a> |
+                <a asp-action="DeleteWorkOrders" asp-route-id="@item.WorkOrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
