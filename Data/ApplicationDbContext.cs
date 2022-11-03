@@ -16,7 +16,7 @@ namespace GlennsHotrods2.Data
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ServiceWriter> ServiceWriters { get; set; }
-        public DbSet<WorkOrder> workOrders { get; set; }
+        public DbSet<WorkOrder> workOrders { get; set; }    //WorkOrders should have been uppercase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
