@@ -262,7 +262,7 @@ namespace GlennsHotrods2.Controllers
                 return NotFound();
             }
 
-            var workOrder = await _context.workOrders.FirstOrDefaultAsync(m => m.WorkOrderId == id);
+            var workOrder = await _context.workOrders.Include(c => c.customer).FirstOrDefaultAsync(m => m.WorkOrderId == id);
             if (workOrder == null)
             {
                 return NotFound();

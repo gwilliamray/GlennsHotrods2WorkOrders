@@ -17,11 +17,13 @@ namespace GlennsHotrods2.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ServiceWriter> ServiceWriters { get; set; }
         public DbSet<WorkOrder> workOrders { get; set; }    //WorkOrders should have been uppercase
+        public DbSet<WorkOrderImage> WorkOrderImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            
             modelBuilder.Entity<ServiceWriter>().HasData(
                 new ServiceWriter { ServiceWriterId = 1, Name= "Glenn" },
                 new ServiceWriter { ServiceWriterId = 2, Name = "Jennifer"},
